@@ -1,12 +1,25 @@
 from chalice import Chalice
 
 app = Chalice(app_name='vibrant-plans')
+app.debug = True
 
+class Session:
+    answers = []
+
+session = Session()
 
 @app.route('/')
 def index():
     return {'hello': 'world'}
 
+@app.route('/next_question', methods=['GET', 'PUT'])
+def nextquestion():
+    request = app.current_request
+    if request.method == 'GET':
+        return "Question here"
+    if request.method == 'PUT':
+        session.answers.append(request.json_body)
+        return session.answers
 
 # The view function above will return {"hello": "world"}
 # whenever you make an HTTP GET request to '/'.
