@@ -1,1 +1,0 @@
-# npo-hackathon-2019
