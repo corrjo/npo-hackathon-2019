@@ -1,3 +1,4 @@
 vibrant-plans/.chalice/deployments/
 vibrant-plans/.chalice/venv/
 *.pyc
+venv/
